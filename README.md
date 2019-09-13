@@ -34,7 +34,7 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [3] Describe state.
 
--3A State is where the data is coming from
+-3A State is where the data is coming from and can be changed.
 
 - [4] Describe props.
 
