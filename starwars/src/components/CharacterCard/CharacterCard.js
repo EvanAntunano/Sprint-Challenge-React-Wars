@@ -1,53 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { Card, CardImg, CardTitle, CardText } from 'reactstrap';
-import axios from 'axios';
 
-const StyledDiv = styled.div`
-    display: flex;
-    width: 600px;
-    justify-content: center;
-    align-items: space-between;
-`
+import React from "react";
 
-const StyledCard = styled(Card)`
-    height: 200px;
-    width: 50%;
-    
-`
-
-export default function CharacterCard() {
-    const [ characters, setCharacters ] = useState([{}]);
-
-    useEffect(() => {
-        axios.get('https://swapi.co/api/people/')
-            .then((res) => {
-                const charArr = res.data.results;
-                setCharacters(charArr);
-            })
-    }, [])
-
+function CharacterCard(props) {
     return (
-        <div>
-            {characters.map(char => {
-                return <StyledDiv> 
-                    <StyledCard>
-                        <CardTitle></CardTitle>{char.name}
-                        <CardText>
-                            Weight: {char.mass}kg
-                        </CardText>
-                        <CardText>
-                            Height: {char.height}m
-                        </CardText>
-                        <CardText>
-                            Birth Year: {char.birth_year}
-                        </CardText>
-                        <cardText>
-                            Gender: {char.gender}
-                        </cardText>
-                    </StyledCard>
-                </StyledDiv>
-            })}
+        <div className="character">
+            <div className="character-content">
+            <h3>Name: {props.name}</h3>
+            <h3>Weight: {props.mass}</h3>
+            <h3>Height: {props.height}</h3>
+            <h3>BirthYear: {props.birth_year}</h3>
+            </div>
         </div>
     )
-} 
+}
+
+export default CharacterCard;

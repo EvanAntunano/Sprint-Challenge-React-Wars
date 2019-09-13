@@ -13,3 +13,7 @@
   
 }
 /* write your parent styles in here for your App.js */
+.Cards{
+  display: flex;
+  border: 4px solid black;
+}
